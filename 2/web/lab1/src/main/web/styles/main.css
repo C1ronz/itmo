@@ -1,0 +1,125 @@
+html, body { margin: 0; padding: 0; }
+
+header {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #000;
+
+    position: sticky;      
+    top: 0;
+    background-color: #f6f0f0;          
+    border-bottom: 2px solid #c1c1c1;                
+}
+
+header p {
+    margin: 0;
+    padding: 5px 10px;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+
+    background-color: #eae9e9;
+}
+
+main {
+    margin: 20px 20px 0; 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+}
+
+
+.graph_section{
+    background-color: #f6f0f0;    
+    border: 2px solid #c1c1c1;  
+}
+
+.graph1 {
+    padding: 40px;
+}
+
+.input_section{
+    background-color: #f6f0f0;  
+    border: 2px solid #c1c1c1;  
+}
+
+
+/* Пример каскадирования */
+input[type="button"] {
+    background-color: #000000;   /* (0,1,1) */
+}
+input[type="button"] {
+    background-color: #ff0000;   /* (0,1,1) 2 — перебьёт 1, т.к. идёт позже */
+}
+
+#x_select input.selected[type="button"] { background-color: #3399FF; color: white; }
+/* (1,2,1) 4 - перебьет 3 */
+
+#x_form input[type="button"] {
+    background-color: #dee1e8;   /* (1,1,1) 3 — перебьёт 2 */
+}
+
+
+#x_form{
+    padding: 20px;
+}
+
+.y_form{
+    padding: 23px;
+}
+
+.y_form input{
+    background-color: #fdf5f5;  
+}
+
+#r_form{
+    margin: 10px;
+}
+
+.action_buttons{
+    padding-top: 20px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.action_buttons button{
+    padding: 7px;
+    margin: 10px;
+}
+
+.action_buttons button:active { 
+    transform: scale(0.7); 
+    background-color: #3399FF;
+}
+
+.results_section{
+    grid-column: 1 / -1;
+    margin-bottom: 40px;
+    background-color: #f6f0f0;  
+    border: 2px solid #c1c1c1; 
+}
+
+#result_table {
+    border-spacing: 25px;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;  
+    padding: 2px;      
+    background-color: #f6f0f0;          
+    border-top: 2px solid #c1c1c1;   
+}
+
+footer p::before, footer p::after {
+    content: " - ";
+    color: #000000;
+}
+

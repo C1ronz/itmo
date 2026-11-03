@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+    <head>
+        <meta charset="UTF-8">
+        <title>First Lab</title>
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body>
+    <header>
+        <p> Лабораторная работа 1 </p>
+        <p> Барболин Сергей | 501660 | P3215 | Вариант:12724</p>
+    </header>
+
+    <main class="container">
+
+        <section class="graph_section">
+            <div class="graph1">
+                <canvas id="graph1" width="300" height="300"> </canvas>
+            </div>
+        </section>
+
+
+        <section class="input_section">
+            <form action="/" method="get" id="x_form">
+                <fieldset id="x_select">
+                    <legend>Выберите x:</legend>
+                    <input type="button" name="x" value="-3">
+                    <input type="button" name="x" value="-2">
+                    <input type="button" name="x" value="-1">
+                    <input type="button" name="x" value="0">
+                    <input type="button" name="x" value="1">
+                    <input type="button" name="x" value="2">
+                    <input type="button" name="x" value="3">
+                    <input type="button" name="x" value="4">
+                    <input type="button" name="x" value="5">
+                </fieldset>
+
+                <div class="y_form">
+                    <label for="y">Введите y от -5 до 5:</label>
+                    <input type="text" id="y" name="y" required>
+                </div>
+               
+
+                <fieldset id="r_form">
+                    <legend>Select R:</legend>
+                    <input type="checkbox" id="r1" name="r" value="1">
+                    <label for="r1">1</label>
+
+                    <input type="checkbox" id="r2" name="r" value="2">
+                    <label for="r2">2</label>
+
+                    <input type="checkbox" id="r3" name="r" value="3">
+                    <label for="r3">3</label>
+
+                    <input type="checkbox" id="r4" name="r" value="4">
+                    <label for="r4">4</label>
+
+                    <input type="checkbox" id="r5" name="r" value="5">
+                    <label for="r5">5</label>
+                </fieldset>
+
+                <div class="action_buttons">
+                    <button type="submit">Проверить</button>
+                    <button type="button">Отчистить историю</button>
+                </div>
+            </form>
+
+        </section>
+
+
+    
+    <section class="results_section">
+        <table id="result_table">
+            <tr>
+                <th>x</th>
+                <th>y</th>
+                <th>r</th>
+                <th>Дата и время проверки</th>
+                <th>Время работы</th>
+                <th>Результат</th>
+            </tr>
+        </table>
+    </section>
+
+
+    </main>
+
+    <footer id="footer">
+        <p> 2026 </p>
+    </footer>
+
+    </body>
+
+    <script src="code_js/graph_draw.js"></script>
+    <script src="code_js/index.js"></script>
+
+
+</html>
+
