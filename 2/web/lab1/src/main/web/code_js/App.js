@@ -13,15 +13,19 @@ class App {
             xErr: document.getElementById('x_error_field'),
             yErr: document.getElementById('y_error_field'),
             rErr: document.getElementById('r_error_field'),
-            onSubmit: data => this.handleSubmit(data),
-            onRChange: rArray => this.handleRChange(rArray),
+            onSubmit: this.handleSubmit.bind(this),
+            onRChange: this.handleRChange.bind(this),
         });
 
         document.getElementById('clean_btn')
-            .addEventListener('click', () => this.table.clear());
+            .addEventListener('click', this.handleClear.bind(this));
 
         this.table.loadFromStorage();
         this.renderer.render(this.form.selectedR);
+    }
+
+    handleClear() {
+        this.table.clear();
     }
 
     handleRChange(rArray) {

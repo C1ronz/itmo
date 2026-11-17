@@ -1,8 +1,13 @@
 html, body { margin: 0; padding: 0; }
 
-header {
+body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
+
+    background-color: #eae9e9;
+}
+
+header {
     color: #000;
 
     position: sticky;      
@@ -14,13 +19,6 @@ header {
 header p {
     margin: 0;
     padding: 5px 10px;
-}
-
-body {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;
-
-    background-color: #eae9e9;
 }
 
 main {
@@ -60,19 +58,22 @@ main {
 }
 
 
-/* Пример каскадирования */
-input[type="button"] {
-    background-color: #000000;   /* (0,1,1) */
-}
-input[type="button"] {
-    background-color: #ff0000;   /* (0,1,1) 2 — перебьёт 1, т.к. идёт позже */
+/* (0,0,1) */
+input {
+    background-color: #d3c6c6;
+    color: #000000;
 }
 
-#x_select input.selected[type="button"] { background-color: #3399FF; color: white; }
-/* (1,2,1) 4 - перебьет 3 */
+/* (1,0,0) */
+#y {
+    background-color: #ffffff; 
+    color: #000000;
+}
 
-#point_form input[type="button"] {
-    background-color: #dee1e8;   /* (1,1,1) 3 — перебьёт 2 */
+/* (1,2,1) */
+#x_select input.selected[type="button"] {
+    background-color: #3399FF;  
+    color: #ffffff;
 }
 
 
@@ -82,10 +83,6 @@ input[type="button"] {
 
 .y_form{
     padding: 23px;
-}
-
-.y_form input{
-    background-color: #fdf5f5;  
 }
 
 #r_select{

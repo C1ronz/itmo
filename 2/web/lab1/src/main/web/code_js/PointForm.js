@@ -11,12 +11,12 @@ class PointForm {
         this.selectedX = null;
         this.selectedR = null;
 
-        this._bindX();
-        this._bindR();
-        this.form.addEventListener('submit', e => this._handleSubmit(e));
+        this.bindX();
+        this.bindR();
+        this.form.addEventListener('submit', e => this.handleSubmit(e));
     }
 
-    _bindX() {
+    bindX() {
         this.xFieldset.querySelectorAll('input[type="button"]').forEach(btn => {
             btn.addEventListener('click', () => {
                 this.xFieldset.querySelectorAll('input[type="button"]')
@@ -27,53 +27,52 @@ class PointForm {
         });
     }
 
-    _bindR() {
-        const update = () => {
+    bindR() {
+        this.rFieldset.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener('change', () => {
             const arr = [];
-            this.rFieldset.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-                if (cb.checked) arr.push(parseFloat(cb.value));
+            this.rFieldset.querySelectorAll('input[type="checkbox"]').forEach(c => {
+                if (c.checked) arr.push(parseFloat(c.value));
             });
             this.selectedR = arr.length === 0 ? null : arr;
             this.onRChange(this.selectedR);
-        };
-
-        this.rFieldset.querySelectorAll('input[type="checkbox"]')
-            .forEach(cb => cb.addEventListener('change', update));
+        });
+    });
     }
 
-    _setError(field, msg) {
+    setError(field, msg) {
         const el = this.errors[field];
         el.textContent = msg;
         el.classList.add('visible');
     }
 
-    _removeErrors() {
+    removeErrors() {
         this.form.querySelectorAll('.error_field').forEach(ef => {
             ef.textContent = '';
             ef.classList.remove('visible');
         });
     }
 
-    _handleSubmit(e) {
+    handleSubmit(e) {
         e.preventDefault();
-        this._removeErrors();
+        this.removeErrors();
 
         let errFlag = false;
 
         if (this.selectedR === null || this.selectedR.length === 0) {
-            this._setError('r', 'Выберите хотя бы одно значение r');
+            this.setError('r', 'Выберите хотя бы одно значение r');
             errFlag = true;
         }
 
         const xCheck = PointValidator.validateX(this.selectedX);
         if (!xCheck.result) {
-            this._setError('x', xCheck.msg);
+            this.setError('x', xCheck.msg);
             errFlag = true;
         }
 
         const yCheck = PointValidator.validateY(this.yInput.value);
         if (!yCheck.result) {
-            this._setError('y', yCheck.msg);
+            this.setError('y', yCheck.msg);
             errFlag = true;
         }
 
